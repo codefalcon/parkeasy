@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  location_address: MyText
+  location_x: 9.99
+  location_y: 9.99
+  user: 
+
+two:
+  location_address: MyText
+  location_x: 9.99
+  location_y: 9.99
+  user: 

@@ -1,0 +1,37 @@
+<h1>Listing parking_space_lots</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Allowed vehicle type</th>
+    <th>Number of lots</th>
+    <th>Preferred duration type</th>
+    <th>Parking space</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @parking_space_lots.each do |parking_space_lot| %>
+  <tr>
+    <td><%= parking_space_lot.start_date %></td>
+    <td><%= parking_space_lot.end_date %></td>
+    <td><%= parking_space_lot.start_time %></td>
+    <td><%= parking_space_lot.end_time %></td>
+    <td><%= parking_space_lot.allowed_vehicle_type_id %></td>
+    <td><%= parking_space_lot.number_of_lots %></td>
+    <td><%= parking_space_lot.preferred_duration_type_id %></td>
+    <td><%= parking_space_lot.parking_space %></td>
+    <td><%= link_to 'Show', parking_space_lot %></td>
+    <td><%= link_to 'Edit', edit_parking_space_lot_path(parking_space_lot) %></td>
+    <td><%= link_to 'Destroy', parking_space_lot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Parking space lot', new_parking_space_lot_path %>

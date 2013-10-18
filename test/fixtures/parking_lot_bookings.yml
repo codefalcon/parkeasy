@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number_of_lots_booked: 1
+  booking_type_id: 1
+  start_date: 2013-10-18
+  end_date: 2013-10-18
+  start_time: 2013-10-18 18:54:23
+  end_time: 2013-10-18 18:54:23
+  payment_amount: 9.99
+  payment_reference: MyString
+  user: 
+  parking_space_lot: 
+
+two:
+  number_of_lots_booked: 1
+  booking_type_id: 1
+  start_date: 2013-10-18
+  end_date: 2013-10-18
+  start_time: 2013-10-18 18:54:23
+  end_time: 2013-10-18 18:54:23
+  payment_amount: 9.99
+  payment_reference: MyString
+  user: 
+  parking_space_lot: 

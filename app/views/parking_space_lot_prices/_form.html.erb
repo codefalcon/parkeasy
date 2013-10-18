@@ -1,0 +1,37 @@
+<%= form_for(@parking_space_lot_price) do |f| %>
+  <% if @parking_space_lot_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parking_space_lot_price.errors.count, "error") %> prohibited this parking_space_lot_price from being saved:</h2>
+
+      <ul>
+      <% @parking_space_lot_price.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :price_per_hour %><br />
+    <%= f.text_field :price_per_hour %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_day %><br />
+    <%= f.text_field :price_per_day %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_fortnight %><br />
+    <%= f.text_field :price_per_fortnight %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_month %><br />
+    <%= f.text_field :price_per_month %>
+  </div>
+  <div class="field">
+    <%= f.label :parking_space_lot %><br />
+    <%= f.text_field :parking_space_lot %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

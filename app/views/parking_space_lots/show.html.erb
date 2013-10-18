@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start date:</b>
+  <%= @parking_space_lot.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @parking_space_lot.end_date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @parking_space_lot.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @parking_space_lot.end_time %>
+</p>
+
+<p>
+  <b>Allowed vehicle type:</b>
+  <%= @parking_space_lot.allowed_vehicle_type_id %>
+</p>
+
+<p>
+  <b>Number of lots:</b>
+  <%= @parking_space_lot.number_of_lots %>
+</p>
+
+<p>
+  <b>Preferred duration type:</b>
+  <%= @parking_space_lot.preferred_duration_type_id %>
+</p>
+
+<p>
+  <b>Parking space:</b>
+  <%= @parking_space_lot.parking_space %>
+</p>
+
+
+<%= link_to 'Edit', edit_parking_space_lot_path(@parking_space_lot) %> |
+<%= link_to 'Back', parking_space_lots_path %>

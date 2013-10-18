@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyText
+  proof_type_id: 
+  proof_id: MyText
+  is_admin: false
+  is_trusted: false
+  user: 
+
+two:
+  address: MyText
+  proof_type_id: 
+  proof_id: MyText
+  is_admin: false
+  is_trusted: false
+  user: 

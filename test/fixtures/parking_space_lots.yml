@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-10-18
+  end_date: 2013-10-18
+  start_time: 2013-10-18 18:52:54
+  end_time: 2013-10-18 18:52:54
+  allowed_vehicle_type_id: 1
+  number_of_lots: 1
+  preferred_duration_type_id: 1
+  parking_space: 
+
+two:
+  start_date: 2013-10-18
+  end_date: 2013-10-18
+  start_time: 2013-10-18 18:52:54
+  end_time: 2013-10-18 18:52:54
+  allowed_vehicle_type_id: 1
+  number_of_lots: 1
+  preferred_duration_type_id: 1
+  parking_space: 
