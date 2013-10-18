@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131018132423) do
+ActiveRecord::Schema.define(:version => 20131018144221) do
 
   create_table "parking_lot_bookings", :force => true do |t|
     t.integer  "number_of_lots_booked"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20131018132423) do
     t.integer  "user_id"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+    t.string   "contact_number"
+    t.string   "place"
   end
 
   add_index "parking_spaces", ["user_id"], :name => "index_parking_spaces_on_user_id"

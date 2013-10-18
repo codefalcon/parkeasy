@@ -16,7 +16,7 @@
     <td><%= parking_space.location_address %></td>
     <td><%= parking_space.location_x %></td>
     <td><%= parking_space.location_y %></td>
-    <td><%= parking_space.user %></td>
+    <td><%= parking_space.user.email %></td>
     <td><%= link_to 'Show', parking_space %></td>
     <td><%= link_to 'Edit', edit_parking_space_path(parking_space) %></td>
     <td><%= link_to 'Destroy', parking_space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
