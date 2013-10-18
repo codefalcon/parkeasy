@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number of lots booked:</b>
+  <%= @parking_lot_booking.number_of_lots_booked %>
+</p>
+
+<p>
+  <b>Booking type:</b>
+  <%= @parking_lot_booking.booking_type_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @parking_lot_booking.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @parking_lot_booking.end_date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @parking_lot_booking.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @parking_lot_booking.end_time %>
+</p>
+
+<p>
+  <b>Payment amount:</b>
+  <%= @parking_lot_booking.payment_amount %>
+</p>
+
+<p>
+  <b>Payment reference:</b>
+  <%= @parking_lot_booking.payment_reference %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @parking_lot_booking.user %>
+</p>
+
+<p>
+  <b>Parking space lot:</b>
+  <%= @parking_lot_booking.parking_space_lot %>
+</p>
+
+
+<%= link_to 'Edit', edit_parking_lot_booking_path(@parking_lot_booking) %> |
+<%= link_to 'Back', parking_lot_bookings_path %>

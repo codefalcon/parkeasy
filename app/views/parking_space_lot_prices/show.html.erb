@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Price per hour:</b>
+  <%= @parking_space_lot_price.price_per_hour %>
+</p>
+
+<p>
+  <b>Price per day:</b>
+  <%= @parking_space_lot_price.price_per_day %>
+</p>
+
+<p>
+  <b>Price per fortnight:</b>
+  <%= @parking_space_lot_price.price_per_fortnight %>
+</p>
+
+<p>
+  <b>Price per month:</b>
+  <%= @parking_space_lot_price.price_per_month %>
+</p>
+
+<p>
+  <b>Parking space lot:</b>
+  <%= @parking_space_lot_price.parking_space_lot %>
+</p>
+
+
+<%= link_to 'Edit', edit_parking_space_lot_price_path(@parking_space_lot_price) %> |
+<%= link_to 'Back', parking_space_lot_prices_path %>

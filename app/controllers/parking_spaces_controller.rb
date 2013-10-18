@@ -1,0 +1,84 @@
+class ParkingSpacesController < ApplicationController
+  # GET /parking_spaces
+  # GET /parking_spaces.json
+  before_filter :authenticate_user!, :only=>[:new]
+  def index
+    @parking_spaces = ParkingSpace.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @parking_spaces }
+    end
+  end
+
+  # GET /parking_spaces/1
+  # GET /parking_spaces/1.json
+  def show
+    @parking_space = ParkingSpace.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @parking_space }
+    end
+  end
+
+  # GET /parking_spaces/new
+  # GET /parking_spaces/new.json
+  def new
+    @parking_space = ParkingSpace.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @parking_space }
+    end
+  end
+
+  # GET /parking_spaces/1/edit
+  def edit
+    @parking_space = ParkingSpace.find(params[:id])
+  end
+
+  # POST /parking_spaces
+  # POST /parking_spaces.json
+  def create
+    @parking_space = ParkingSpace.new(params[:parking_space])
+
+    respond_to do |format|
+      if @parking_space.save
+        format.html { redirect_to @parking_space, notice: 'Parking space was successfully created.' }
+        format.json { render json: @parking_space, status: :created, location: @parking_space }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @parking_space.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /parking_spaces/1
+  # PUT /parking_spaces/1.json
+  def update
+    @parking_space = ParkingSpace.find(params[:id])
+
+    respond_to do |format|
+      if @parking_space.update_attributes(params[:parking_space])
+        format.html { redirect_to @parking_space, notice: 'Parking space was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @parking_space.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /parking_spaces/1
+  # DELETE /parking_spaces/1.json
+  def destroy
+    @parking_space = ParkingSpace.find(params[:id])
+    @parking_space.destroy
+
+    respond_to do |format|
+      format.html { redirect_to parking_spaces_url }
+      format.json { head :no_content }
+    end
+  end
+end

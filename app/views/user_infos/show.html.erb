@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @user_info.address %>
+</p>
+
+<p>
+  <b>Proof type:</b>
+  <%= @user_info.proof_type_id %>
+</p>
+
+<p>
+  <b>Proof:</b>
+  <%= @user_info.proof_id %>
+</p>
+
+<p>
+  <b>Is admin:</b>
+  <%= @user_info.is_admin %>
+</p>
+
+<p>
+  <b>Is trusted:</b>
+  <%= @user_info.is_trusted %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @user_info.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
+<%= link_to 'Back', user_infos_path %>

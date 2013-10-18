@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  price_per_hour: 9.99
+  price_per_day: 9.99
+  price_per_fortnight: 9.99
+  price_per_month: 9.99
+  parking_space_lot: 
+
+two:
+  price_per_hour: 9.99
+  price_per_day: 9.99
+  price_per_fortnight: 9.99
+  price_per_month: 9.99
+  parking_space_lot: 

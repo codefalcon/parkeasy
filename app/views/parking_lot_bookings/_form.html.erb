@@ -1,0 +1,57 @@
+<%= form_for(@parking_lot_booking) do |f| %>
+  <% if @parking_lot_booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parking_lot_booking.errors.count, "error") %> prohibited this parking_lot_booking from being saved:</h2>
+
+      <ul>
+      <% @parking_lot_booking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number_of_lots_booked %><br />
+    <%= f.number_field :number_of_lots_booked %>
+  </div>
+  <div class="field">
+    <%= f.label :booking_type_id %><br />
+    <%= f.number_field :booking_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.time_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.time_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_amount %><br />
+    <%= f.text_field :payment_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_reference %><br />
+    <%= f.text_field :payment_reference %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :parking_space_lot %><br />
+    <%= f.text_field :parking_space_lot %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

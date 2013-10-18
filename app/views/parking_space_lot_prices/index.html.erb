@@ -1,0 +1,31 @@
+<h1>Listing parking_space_lot_prices</h1>
+
+<table>
+  <tr>
+    <th>Price per hour</th>
+    <th>Price per day</th>
+    <th>Price per fortnight</th>
+    <th>Price per month</th>
+    <th>Parking space lot</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @parking_space_lot_prices.each do |parking_space_lot_price| %>
+  <tr>
+    <td><%= parking_space_lot_price.price_per_hour %></td>
+    <td><%= parking_space_lot_price.price_per_day %></td>
+    <td><%= parking_space_lot_price.price_per_fortnight %></td>
+    <td><%= parking_space_lot_price.price_per_month %></td>
+    <td><%= parking_space_lot_price.parking_space_lot %></td>
+    <td><%= link_to 'Show', parking_space_lot_price %></td>
+    <td><%= link_to 'Edit', edit_parking_space_lot_price_path(parking_space_lot_price) %></td>
+    <td><%= link_to 'Destroy', parking_space_lot_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Parking space lot price', new_parking_space_lot_price_path %>
