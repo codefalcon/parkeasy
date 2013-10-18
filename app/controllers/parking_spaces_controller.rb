@@ -1,4 +1,5 @@
 class ParkingSpacesController < ApplicationController
+  include ApplicationHelper
   # GET /parking_spaces
   # GET /parking_spaces.json
   before_filter :authenticate_user!, :only=>[:new]
@@ -24,13 +25,16 @@ class ParkingSpacesController < ApplicationController
 
   # GET /parking_spaces/new
   # GET /parking_spaces/new.json
-  def new
-    @parking_space = ParkingSpace.new    
+def new
+    @parking_space = ParkingSpace.new
+    @allowed_vehicle_types = AllowedVehicleType.AllowedVehicleTypes().to_a
+    @preferred_duration_types =  PreferredDurationType.PreferredDurationTypes().to_a
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @parking_space }
     end
   end
+
 
   # GET /parking_spaces/1/edit
   def edit
