@@ -32,6 +32,9 @@ class ParkingLotBookingsController < ApplicationController
     end
   end
 
+  def search
+    @parking_lot_booking = ParkingLotBooking.new
+  end
   # GET /parking_lot_bookings/1/edit
   def edit
     @parking_lot_booking = ParkingLotBooking.find(params[:id])
