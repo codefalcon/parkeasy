@@ -10,9 +10,12 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :location_address %><br />
+    <%= f.label :place %><br />
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
     <%= f.text_area :location_address %>
   </div>
   <div class="field">
@@ -24,9 +27,39 @@
     <%= f.text_field :location_y %>
   </div>
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number %>
   </div>
+  <%= fields_for :parking_space_lot do |parking_space_lot_fields| %>
+  <div class="field">
+    <%= parking_space_lot_fields.label :start_date %><br />
+    <%= parking_space_lot_fields.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :end_date %><br />
+    <%= parking_space_lot_fields.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :start_time %><br />
+    <%= parking_space_lot_fields.time_select :start_time %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :end_time %><br />
+    <%= parking_space_lot_fields.time_select :end_time %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :allowed_vehicle_type_id %><br />
+    <%= parking_space_lot_fields.number_field :allowed_vehicle_type_id %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :number_of_lots %><br />
+    <%= parking_space_lot_fields.number_field :number_of_lots %>
+  </div>
+  <div class="field">
+    <%= parking_space_lot_fields.label :preferred_duration_type_id %><br />
+    <%= parking_space_lot_fields.number_field :preferred_duration_type_id %>
+  </div>  
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
