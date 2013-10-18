@@ -25,8 +25,7 @@ class ParkingSpacesController < ApplicationController
   # GET /parking_spaces/new
   # GET /parking_spaces/new.json
   def new
-    @parking_space = ParkingSpace.new
-
+    @parking_space = ParkingSpace.new    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @parking_space }
@@ -42,11 +41,16 @@ class ParkingSpacesController < ApplicationController
   # POST /parking_spaces.json
   def create
     @parking_space = ParkingSpace.new(params[:parking_space])
-
+    @parking_space.location_x = @parking_space.location_x.to_f
+    @parking_space.location_y = @parking_space.location_y.to_f
+    @parking_space.user = current_user
+    @parking_space_lot = ParkingSpaceLot.new(params[:parking_space_lot])
     respond_to do |format|
       if @parking_space.save
-        format.html { redirect_to @parking_space, notice: 'Parking space was successfully created.' }
-        format.json { render json: @parking_space, status: :created, location: @parking_space }
+        @parking_space_lot.parking_space = @parking_space
+        @parking_space_lot.save!
+        format.html { redirect_to '/parking_spaces', notice: 'Parking space was successfully created.' }
+        #format.json { render json: @parking_spaces, status: :created, location: @parking_spaces }
       else
         format.html { render action: "new" }
         format.json { render json: @parking_space.errors, status: :unprocessable_entity }
