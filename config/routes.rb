@@ -15,7 +15,7 @@ Parkeasy::Application.routes.draw do
 
 
   devise_for :users
-  root :to=>'parking_spaces#index'
+  root :to=>'parking_lot_bookings#search'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
