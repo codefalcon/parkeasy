@@ -1,4 +1,5 @@
 Parkeasy::Application.routes.draw do
+  get 'parking_lot_bookings/booking' => 'parking_lot_bookings#booking'
   resources :parking_lot_bookings
 
 
