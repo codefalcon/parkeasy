@@ -24,7 +24,7 @@
     <td><%= parking_space_lot.allowed_vehicle_type_id %></td>
     <td><%= parking_space_lot.number_of_lots %></td>
     <td><%= parking_space_lot.preferred_duration_type_id %></td>
-    <td><%= parking_space_lot.parking_space %></td>
+    <td><%= parking_space_lot.parking_space.place %></td>
     <td><%= link_to 'Show', parking_space_lot %></td>
     <td><%= link_to 'Edit', edit_parking_space_lot_path(parking_space_lot) %></td>
     <td><%= link_to 'Destroy', parking_space_lot, method: :delete, data: { confirm: 'Are you sure?' } %></td>

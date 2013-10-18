@@ -1,6 +1,11 @@
 class ParkingLotBookingsController < ApplicationController
   # GET /parking_lot_bookings
   # GET /parking_lot_bookings.json
+  def search
+    @parking_lot_booking = ParkingLotBooking.new
+    @allowed_vehicle_types = AllowedVehicleType.AllowedVehicleTypes().to_a
+  end
+
   def index
     @parking_lot_bookings = ParkingLotBooking.all
 

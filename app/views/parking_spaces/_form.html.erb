@@ -10,26 +10,34 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :place %><br />
-    <%= f.text_field :place %>
+  <div class="row">
+       <div class="span6">
+         <div class="field">
+           <%= f.label :place %><br />
+           <%= f.text_field :place %>
+         </div>
+         <div class="field">
+           <%= f.label :address %><br />
+           <%= f.text_area :location_address, :rows => "5" %>
+         </div>
+         <div class="field">
+           <%= f.label :location_x %><br />
+           <%= f.text_field :location_x %>
+         </div>
+         <div class="field">
+           <%= f.label :location_y %><br />
+           <%= f.text_field :location_y %>
+         </div>
+         <div class="field">
+           <%= f.label :contact_number %><br />
+           <%= f.text_field :contact_number %>
+         </div>
+       </div>
+       <div class="span6">
+             <img src="http://maps.googleapis.com/maps/api/staticmap?zoom=13&size=600x300&maptype=roadmap&markers=color:green%7Clabel:P%7C13.012802936299424,80.20887225866318&sensor=false">
+       </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :location_address %>
-  </div>
-  <div class="field">
-    <%= f.label :location_x %><br />
-    <%= f.text_field :location_x %>
-  </div>
-  <div class="field">
-    <%= f.label :location_y %><br />
-    <%= f.text_field :location_y %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_number %><br />
-    <%= f.text_field :contact_number %>
-  </div>
+  <h2>Parking Slot Details:</h2>
   <%= fields_for :parking_space_lot do |parking_space_lot_fields| %>
   <div class="field">
     <%= parking_space_lot_fields.label :start_date %><br />
@@ -49,7 +57,7 @@
   </div>
   <div class="field">
     <%= parking_space_lot_fields.label :allowed_vehicle_type_id %><br />
-    <%= parking_space_lot_fields.number_field :allowed_vehicle_type_id %>
+    <%= parking_space_lot_fields.select :allowed_vehicle_type_id, options_for_select(@allowed_vehicle_types),{},{} %>
   </div>
   <div class="field">
     <%= parking_space_lot_fields.label :number_of_lots %><br />
@@ -57,9 +65,34 @@
   </div>
   <div class="field">
     <%= parking_space_lot_fields.label :preferred_duration_type_id %><br />
-    <%= parking_space_lot_fields.number_field :preferred_duration_type_id %>
+    <%= parking_space_lot_fields.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
   </div>  
   <% end %>
+  <div class="well">
+       <table class="table">
+       <tr>
+              <th>#</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Number of lots</th>
+              <th>Slot Type</th>   
+       </tr>
+  
+  <tr>
+       <td>1</td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>    
+  </tr>  
+  
+       </table>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
