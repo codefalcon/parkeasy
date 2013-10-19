@@ -15,8 +15,8 @@ class ParkingLotBookingsController < ApplicationController
     @available_lots ={}
     @resultant_lots_hash = []
     @parking_spaces.each do |place|
-      @parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = ? AND end_date > ? AND start_date < ?",place.id,@allwd_vehicle,@end_date,@start_date).first()
-      #@parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = 1",place.id).first()
+      #@parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = ? AND end_date > ? AND start_date < ?",place.id,@allwd_vehicle,@end_date,@start_date).first()
+      @parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = 1",place.id).first()
       if !@parking_space_lot.nil?
          @parking_space_lots.append(@parking_space_lot)
          @available_lots[@parking_space_lot.id] = @parking_space_lot.number_of_lots
@@ -32,12 +32,12 @@ class ParkingLotBookingsController < ApplicationController
   @available_lots.each do |result_lot|
     @parking_space_lot = ParkingSpaceLot.where(:id =>result_lot[0]).first()
     if !@parking_space_lot.nil?
-      @resultant_lots_hash << {:one=>ParkingSpace.where(:id=>@parking_space_lot.parking_space_id), :two=>result_lot[1]}
+      @resultant_lots_hash << {:one=>@parking_space_lot.parking_space_id, :two=>result_lot[1]}
     end
   end
   respond_to do |format|
      format.html { redirect_to parking_spaces_search_listing_path(:resultant_lots_hash => @resultant_lots_hash) }
-     #format.json { render json: @resultant_lots_hash } 
+     format.json { render json: @resultant_lots_hash } 
   end   
   end
 
@@ -130,6 +130,15 @@ class ParkingLotBookingsController < ApplicationController
       format.html { redirect_to parking_lot_bookings_url }
       format.json { head :no_content }
     end
+  end
+  
+  def booking
+    @parking_lot_booking = ParkingLotBooking.new
+    @start_date = params[:start_date]
+    @start_time = params[:start_time]
+    @end_date = params[:end_date]
+    @end_time= params[:end_time]
+    @selected_parking_space = params[:parking_space]    
   end
   
   private 

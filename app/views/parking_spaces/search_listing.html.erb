@@ -11,12 +11,12 @@
     <th></th>
   </tr>
 
-<% @resultant_lots_hash.each do |parking_space| %>
+<% @parking_spaces.each do |parking_space| %>
   <tr>
-    <td><%= parking_space["one"].location_address %></td>
-    <td><%= parking_space["one"].location_x %></td>
-    <td><%= parking_space["one"].location_y %></td>
-    <td><%= parking_space["one"].user.email %></td>    
+    <td><%= parking_space.location_address %></td>
+    <td><%= parking_space.location_x %></td>
+    <td><%= parking_space.location_y %></td>
+    <td><%= parking_space.user.email %></td>    
   </tr>
 <% end %>
 </table>
