@@ -1,4 +1,4 @@
-<div style="float: left; margin: 10px 30px 0 0"><%= image_tag("logo.png", :alt => "icon") %></div>
+
 <%= link_to "Home", root_path, :class => 'brand' %>
 <ul class="nav">
 	<% if !user_signed_in? %>
@@ -8,7 +8,7 @@
 	<% end %>
 	<% if user_signed_in? %>
 	<li>
-		<%= link_to("Parking Lots",:controller => "parking_lot_bookings", :action => "search")  %>
+		<%= link_to("Home",:controller => "parking_lot_bookings", :action => "search")  %>
 	</li>
 	<li>
 		<%= link_to("My Bookings",parking_lot_bookings_path)  %>
@@ -35,3 +35,4 @@
 	</li>
 	<%end%>
 </ul>
+<div style="float: left; margin: 10px 30px 0 0"><%= image_tag("logo.png", :alt => "icon") %></div>
