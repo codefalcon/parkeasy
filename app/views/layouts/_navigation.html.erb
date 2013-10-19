@@ -15,7 +15,11 @@
 	<li>
 		<%= link_to("My Parking Lots",parking_space_lots_path)  %>
 	</li>
-
+</ul>
+<ul class="nav pull-right">
+	<li style="color:white">
+		<h5>Hi! <%= current_user.email %> !!!</h5>
+	</li>
 	<li>
 		<%= link_to('Edit account', user_infos_path) %>
 	</li>

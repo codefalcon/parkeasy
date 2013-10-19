@@ -5,8 +5,11 @@ function loadScript() {
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
       'callback=initialize';
   document.body.appendChild(script);
-  document.getElementById("mapsearch").onclick = function () { 
+  document.getElementById("singlemapsearch").onclick = function () { 
   	centerMap();	
+  };
+   document.getElementById("multimapsearch").onclick = function () { 
+  	renderLocations();	
   };
 }
 
@@ -54,7 +57,8 @@ function initialize() {
 }
 
  function centerMap() {
-        var address = document.getElementById('txtMapAddress').value;
+ 	
+ 		var address = $('#txtMapAddress').val();
         if (address.length > 0) {
           var geocoder = new google.maps.Geocoder();
 
@@ -67,5 +71,47 @@ function initialize() {
           });
         }
       }
+      
+      function renderLocations() {
+      	
+      	$.ajax({
+        url: '/parking_spaces.json',
+	  
+	  success: function( resp ) {
+	    var locations = []; 
+	    locations = resp;
+	    var map = new google.maps.Map(document.getElementById('map_canvas'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-33.92, 151.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    
+    for (i = 0; i < locations.length; i++) {
+    	  alert(locations[i].length_x + "," + locations[i].lenght_y);
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].location_x, locations[i].location_y),
+        map: map,
+        icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'
+      });
+		
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      	
+        return function() 
+        { 
+              window.location ='/parking_spaces/'+  locations[i].id;   
+        };
+      })(marker, i));
+    }
+		  },
+		  error: function( req, status, err ) {
+		    console.log( 'something went wrong', status, err );
+		  }
+		});
+      	
+  }
       
 window.onload = loadScript;

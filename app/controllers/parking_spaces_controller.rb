@@ -101,4 +101,7 @@ def new
       format.json { head :no_content }
     end
   end
+  def search_listing
+    @resultant_lots_hash = params[:resultant_lots_hash] 
+  end
 end
