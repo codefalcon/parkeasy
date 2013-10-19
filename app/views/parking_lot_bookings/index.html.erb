@@ -1,37 +1,32 @@
-<h1>Listing parking_lot_bookings</h1>
+<h1>Listing the slots you have booked</h1>
 
 <table class="table table-bordered">
   <tr>
-    <th>Number of lots booked</th>
     <th>Booking type</th>
     <th>Start date</th>
     <th>End date</th>
-    <th>Start time</th>
-    <th>End time</th>
     <th>Payment amount</th>
     <th>Payment reference</th>
     <th>User</th>
     <th>Parking space lot</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Delete</th>
   </tr>
 
 <% @parking_lot_bookings.each  do |parking_lot_booking| %>
   <tr>
-    <td><%= parking_lot_booking.number_of_lots_booked %></td>
     <td><%= parking_lot_booking.booking_type_id %></td>
-    <td><%= parking_lot_booking.start_date %></td>
-    <td><%= parking_lot_booking.end_date %></td>
-    <td><%= parking_lot_booking.start_time %></td>
-    <td><%= parking_lot_booking.end_time %></td>
+    <% if parking_lot_booking.end_date?  %> 
+    <td><%= parking_lot_booking.end_date.strftime("%Y-%m-%d") %> <%= parking_lot_booking.end_time.strftime(" %H:%M:%S")  %></td> 
+    <% else %>
+    <td><%= parking_lot_booking.start_date.strftime("%Y-%m-%d") %> <%= parking_lot_booking.end_time.strftime(" %H:%M:%S")  %></td>
+    <%end%> 
     <td><%= parking_lot_booking.payment_amount %></td>
     <td><%= parking_lot_booking.payment_reference %></td>
     <td><%= parking_lot_booking.user %></td>
     <td><%= parking_lot_booking.parking_space_lot %></td>
-    <td><%= link_to 'Show', parking_lot_booking %></td>
-    <td><%= link_to 'Edit', edit_parking_lot_booking_path(parking_lot_booking) %></td>
-    <td><%= link_to 'Destroy', parking_lot_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+    <td><%= link_to parking_space_lot, method: :delete, data: { confirm: 'Are you sure?' } do%>
+	<i class="icon-trash" title="Delete"></i>
+	<%end%></td> 
   </tr>
 <% end %>
 </table>
