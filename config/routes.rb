@@ -3,7 +3,7 @@ Parkeasy::Application.routes.draw do
   get 'parking_lot_bookings/search' => 'parking_lot_bookings#search'
   post 'parking_lot_bookings' => 'parking_lot_bookings#find_empty_lots'
   get '/users/edit' => 'user_infos#edit'
-  #get 'parking_spaces' => 'parking_space_lots#index'
+  get 'parking_spaces' => 'parking_space_lots#index'
   get 'parking_spaces/search_listing'
   
       # resources :users do
