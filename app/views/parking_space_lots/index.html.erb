@@ -13,12 +13,12 @@
 
 <% @parking_space_lots.each do |parking_space_lot| %>
   <tr>
-    <td><%= parking_space_lot.start_date.strftime("%Y-%m-%d") %> <%= parking_space_lot.start_time.strftime(" %H:%M:%S") %></td>
+  	<td><%= parking_space_lot.start_date.strftime("%Y-%m-%d") %> <%= parking_space_lot.start_time.strftime(" %H:%M:%S") %></td>
     <% if parking_space_lot.end_date?  %> 
     <td><%= parking_space_lot.end_date.strftime("%Y-%m-%d") %> <%= parking_space_lot.end_time.strftime(" %H:%M:%S")  %></td> 
     <% else %>
     <td><%= parking_space_lot.start_date.strftime("%Y-%m-%d") %> <%= parking_space_lot.end_time.strftime(" %H:%M:%S")  %></td>
-    <%end%> 
+    <%end%>  
     <td><%= parking_space_lot.allowed_vehicle_type_id %></td>
     <td><%= parking_space_lot.number_of_lots %></td>
     <td><%= parking_space_lot.preferred_duration_type_id %></td>
