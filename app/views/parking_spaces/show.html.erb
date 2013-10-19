@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <b>Place:</b>
+  <%= @parking_space.place %>
+</p>
 
 <p>
   <b>Location address:</b>
@@ -6,18 +9,8 @@
 </p>
 
 <p>
-  <b>Location x:</b>
-  <%= @parking_space.location_x %>
-</p>
-
-<p>
-  <b>Location y:</b>
-  <%= @parking_space.location_y %>
-</p>
-
-<p>
   <b>User:</b>
-  <%= @parking_space.user %>
+  <%= @parking_space.user.email %>
 </p>
 
 

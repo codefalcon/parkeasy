@@ -40,7 +40,8 @@ function initialize() {
     title:"Click to Adjust Position "
     });
     marker.setMap(map);
-    document.getElementById("movie_location").value = lat + "," + lng;
+    document.getElementById("maplatitude").value = lat;
+    document.getElementById("maplongitude").value = lng;
   });
   
   

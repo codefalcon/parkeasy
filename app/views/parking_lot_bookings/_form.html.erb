@@ -1,4 +1,4 @@
-<%= form_for(@parking_lot_booking) do |f| %>
+<%= form_for @parking_lot_booking  do |f| %>
   <% if @parking_lot_booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@parking_lot_booking.errors.count, "error") %> prohibited this parking_lot_booking from being saved:</h2>

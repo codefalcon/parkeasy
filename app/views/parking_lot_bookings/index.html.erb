@@ -1,6 +1,6 @@
 <h1>Listing parking_lot_bookings</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Number of lots booked</th>
     <th>Booking type</th>
@@ -17,7 +17,7 @@
     <th></th>
   </tr>
 
-<% @parking_lot_bookings.each do |parking_lot_booking| %>
+<% @parking_lot_bookings.each  do |parking_lot_booking| %>
   <tr>
     <td><%= parking_lot_booking.number_of_lots_booked %></td>
     <td><%= parking_lot_booking.booking_type_id %></td>
@@ -31,7 +31,7 @@
     <td><%= parking_lot_booking.parking_space_lot %></td>
     <td><%= link_to 'Show', parking_lot_booking %></td>
     <td><%= link_to 'Edit', edit_parking_lot_booking_path(parking_lot_booking) %></td>
-    <td><%= link_to 'Destroy', parking_lot_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', parking_lot_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
   </tr>
 <% end %>
 </table>
