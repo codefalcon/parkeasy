@@ -3,6 +3,12 @@ class ParkingSpaceLotsController < ApplicationController
   # GET /parking_space_lots.json
   def index
     @parking_space_lots = ParkingSpaceLot.all
+    
+    @parking_spaces = ParkingSpace.where(:user_id=>current_user.id)
+    @parking_space_lots=[]
+    @parking_spaces.each do |space|
+      @parking_space_lots += ParkingSpaceLot.where(:parking_space_id=>space.id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

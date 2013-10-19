@@ -39,6 +39,8 @@ def new
   # GET /parking_spaces/1/edit
   def edit
     @parking_space = ParkingSpace.find(params[:id])
+    @allowed_vehicle_types = AllowedVehicleType.AllowedVehicleTypes().to_a
+    @preferred_duration_types =  PreferredDurationType.PreferredDurationTypes().to_a
   end
 
   # POST /parking_spaces
