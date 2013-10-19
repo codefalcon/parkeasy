@@ -1,6 +1,9 @@
 @import "bootstrap";
-body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+body {
+	background: #555
+}
 
 [class^="icon-"], [class*=" icon-"] {
   background-image: url(/assets/glyphicons-halflings.png)

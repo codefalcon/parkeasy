@@ -32,9 +32,13 @@ class ParkingLotBookingsController < ApplicationController
   @available_lots.each do |result_lot|
     @parking_space_lot = ParkingSpaceLot.where(:id =>result_lot[0]).first()
     if !@parking_space_lot.nil?
-      @resultant_lots_hash << ParkingSpace.where(:id=>@parking_space_lot.parking_space_id) << result_lot[1]
+      @resultant_lots_hash << {:one=>ParkingSpace.where(:id=>@parking_space_lot.parking_space_id), :two=>result_lot[1]}
     end
-  end  
+  end
+  respond_to do |format|
+     format.html { redirect_to parking_spaces_search_listing_path(:resultant_lots_hash => @resultant_lots_hash) }
+     #format.json { render json: @resultant_lots_hash } 
+  end   
   end
 
   def search
