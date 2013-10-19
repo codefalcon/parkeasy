@@ -91,7 +91,7 @@ function initialize() {
     var marker, i;
     
     for (i = 0; i < locations.length; i++) {
-    	  alert(locations[i].length_x + "," + locations[i].lenght_y);
+    	  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i].location_x, locations[i].location_y),
         map: map,

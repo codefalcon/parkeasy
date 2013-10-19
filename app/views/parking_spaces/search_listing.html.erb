@@ -1,23 +1,24 @@
-<h1>This is search listing page</h1>
-<h1>Listing parking_spaces</h1>
-<table class="table  table-bordered zebra-striped">
-  <tr>
-    <th>Location address</th>
-    <th>Location x</th>
-    <th>Location y</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @parking_spaces.each do |parking_space| %>
-  <tr>
-    <td><%= parking_space.location_address %></td>
-    <td><%= parking_space.location_x %></td>
-    <td><%= parking_space.location_y %></td>
-    <td><%= parking_space.user.email %></td>    
-  </tr>
-<% end %>
-</table>
-<br />
+<h3>Search Results ..</h3>
+  <% @resultant_lots_hash.each_slice(2) do |batch| %>
+    <div class="row">
+    	<% batch.each do |parking_space| %>
+    		<%= form_for(parking_space) do |ps| %>
+		    <div class="span2">
+		      <img src="http://placehold.it/150x150" width="150" height="150" alt="" class="img-rounded">
+		    </div>
+		    <div class="span4">
+		      <blockquote>
+		        <p><%= parking_space.place%></p>
+		        <small><cite title="Source Title"><%= parking_space.location_x %> ,<%= parking_space.location_x %> <i class="icon-map-marker"></i></cite></small>
+		      </blockquote>
+		      
+		      <p>
+		                  
+				<%= link_to "Book", parking_lot_bookings_booking_path , :class =>"btn btn-danger btn-small active", :id => parking_space.id%>
+		      </p>
+		    </div>
+		    <% end %>
+		<% end%>
+    </div>
+     <br/>
+  <% end %>
