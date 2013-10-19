@@ -102,6 +102,14 @@ def new
     end
   end
   def search_listing
-    @resultant_lots_hash = params[:resultant_lots_hash] 
+    @resultant_lots_hash = params[:resultant_lots_hash]
+    @parking_spaces = []   
+    @resultant_lots_hash.each do |r|
+      parking_spaceid = r["one"]
+      space = ParkingSpace.where(:id=>parking_spaceid).first()
+      if !space.nil?
+        @parking_spaces << space
+      end 
+    end    
   end
 end
