@@ -52,7 +52,7 @@ class ParkingLotBookingsController < ApplicationController
   # POST /parking_lot_bookings.json
   def create
     @parking_lot_booking = ParkingLotBooking.new(params[:parking_lot_booking])
-
+    @parking_lot_booking.user = current_user
     respond_to do |format|
       if @parking_lot_booking.save
         format.html { redirect_to @parking_lot_booking, notice: 'Parking lot booking was successfully created.' }
