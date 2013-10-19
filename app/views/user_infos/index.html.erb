@@ -1,12 +1,10 @@
-<h1>Listing user_infos</h1>
+<h3>Personal Details</h3>
 
 <table class="table table-bordered zebra-striped">
   <tr>
     <th>Address</th>
     <th>Proof type</th>
     <th>Proof</th>
-    <th>Is admin</th>
-    <th>Is trusted</th>
     <th>User</th>
     <th>Action</th>
 
@@ -17,8 +15,6 @@
     <td><%= user_info.address %></td>
     <td><%= user_info.proof_type_id %></td>
     <td><%= user_info.proof_id %></td>
-    <td><%= user_info.is_admin %></td>
-    <td><%= user_info.is_trusted %></td>
     <td><%= user_info.user.email %></td>
     <td><%= link_to user_info do %> <i class="icon-eye-open" title="Show"> </i><%end%>
     <%= link_to edit_user_info_path(user_info) do %><i class="icon-pencil" title="Edit"></i>	<%end%>
