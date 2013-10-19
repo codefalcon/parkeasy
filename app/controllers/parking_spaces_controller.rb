@@ -51,15 +51,8 @@ def new
     @parking_space.location_y = @parking_space.location_y.to_f
     @parking_space.user = current_user
     @parking_space_lot = ParkingSpaceLot.new(params[:parking_space_lot])
-    
-    puts 'koyya'
-    puts 'koyya'
-    puts 'koyya'
-    puts @parking_space_lot.start_date
-    puts @parking_space_lot.start_date
-    puts @parking_space_lot.start_date
-    puts @parking_space_lot.start_date
-    
+ 
+   
     respond_to do |format|
       if @parking_space.save
         puts @parking_space_lot.start_date
@@ -103,13 +96,15 @@ def new
   end
   def search_listing
     @resultant_lots_hash = params[:resultant_lots_hash]
-    @parking_spaces = []   
-    @resultant_lots_hash.each do |r|
-      parking_spaceid = r["one"]
-      space = ParkingSpace.where(:id=>parking_spaceid).first()
-      if !space.nil?
-        @parking_spaces << space
-      end 
-    end    
+    @parking_spaces = []
+    if !@resultant_lots_hash.nil?   
+      @resultant_lots_hash.each do |r|
+        parking_spaceid = r["one"]
+        space = ParkingSpace.where(:id=>parking_spaceid).first()
+        if !space.nil?
+          @parking_spaces << space
+        end 
+      end    
+    end
   end
 end

@@ -1,5 +1,5 @@
 <h3>Search Results ..</h3>
-  <% @resultant_lots_hash.each_slice(2) do |batch| %>
+  <% @parking_spaces.each_slice(2) do |batch| %>
     <div class="row">
     	<% batch.each do |parking_space| %>
     		<%= form_for(parking_space) do |ps| %>
