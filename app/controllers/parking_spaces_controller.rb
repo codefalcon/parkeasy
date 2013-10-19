@@ -51,8 +51,18 @@ def new
     @parking_space.location_y = @parking_space.location_y.to_f
     @parking_space.user = current_user
     @parking_space_lot = ParkingSpaceLot.new(params[:parking_space_lot])
+    
+    puts 'koyya'
+    puts 'koyya'
+    puts 'koyya'
+    puts @parking_space_lot.start_date
+    puts @parking_space_lot.start_date
+    puts @parking_space_lot.start_date
+    puts @parking_space_lot.start_date
+    
     respond_to do |format|
       if @parking_space.save
+        puts @parking_space_lot.start_date
         @parking_space_lot.parking_space = @parking_space
         @parking_space_lot.save!
         format.html { redirect_to '/parking_spaces', notice: 'Parking space was successfully created.' }
