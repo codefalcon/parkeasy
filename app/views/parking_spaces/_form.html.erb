@@ -20,52 +20,59 @@
            <%= f.label :address %><br />
            <%= f.text_area :location_address, :rows => "5" %>
          </div>
-         <div class="field">
-           <%= f.label :location_x %><br />
-           <%= f.text_field :location_x %>
-         </div>
-         <div class="field">
-           <%= f.label :location_y %><br />
-           <%= f.text_field :location_y %>
-         </div>
+           <%= f.hidden_field  :location_x, :id => "maplongitude" %>
+           <%= f.hidden_field  :location_y, :id => "maplatitude" %>
          <div class="field">
            <%= f.label :contact_number %><br />
-           <%= f.text_field :contact_number %>
+           <%= f.text_field :contact_number%>
          </div>
        </div>
        <div class="span6">
-             <img src="http://maps.googleapis.com/maps/api/staticmap?zoom=13&size=600x300&maptype=roadmap&markers=color:green%7Clabel:P%7C13.012802936299424,80.20887225866318&sensor=false">
+       		<div class="searchBarControls">
+			<div class="field">
+				<input type="text" id="txtMapAddress" class="search-query" placeholder="Search parking by address, city, neighborhood, landmark or zip code">
+				<a href="javascript:void(0);" id="mapsearch" class="btn btn-inverse"><i class="icon-white icon-search"></i> Search</a>
+			</div>	
+			<br />
+			<div id="map_canvas" style="width:100%;height:350px;"></div>
+	        </div>
        </div>
   </div>
   <h2>Parking Slot Details:</h2>
-  <%= fields_for :parking_space_lot do |parking_space_lot_fields| %>
+  <%= fields_for :parking_space_lot do |f| %>
   <div class="field">
-    <%= parking_space_lot_fields.label :start_date %><br />
-    <%= parking_space_lot_fields.date_select :start_date %>
+  	<%= f.label :start_date %>
+  	<div class="input-append datetimepicker2">
+		<%= f.text_field :start_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+	</div>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :end_date %><br />
-    <%= parking_space_lot_fields.date_select :end_date %>
+  	<%= f.label :start_date %>
+  	<div class="input-append datetimepicker2">
+  		<%= f.text_field :start_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+	</div>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :start_time %><br />
-    <%= parking_space_lot_fields.time_select :start_time %>
+    <%= f.label :start_time %><br />
+    <%= f.time_select :start_time %>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :end_time %><br />
-    <%= parking_space_lot_fields.time_select :end_time %>
+    <%= f.label :end_time %><br />
+    <%= f.time_select :end_time %>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :allowed_vehicle_type_id %><br />
-    <%= parking_space_lot_fields.select :allowed_vehicle_type_id, options_for_select(@allowed_vehicle_types),{},{} %>
+    <%= f.label :allowed_vehicle_type_id %><br />
+    <%= f.select :allowed_vehicle_type_id, options_for_select(@allowed_vehicle_types),{},{} %>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :number_of_lots %><br />
-    <%= parking_space_lot_fields.number_field :number_of_lots %>
+    <%= f.label :number_of_lots %><br />
+    <%= f.number_field :number_of_lots %>
   </div>
   <div class="field">
-    <%= parking_space_lot_fields.label :preferred_duration_type_id %><br />
-    <%= parking_space_lot_fields.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
+    <%= f.label :preferred_duration_type_id %><br />
+    <%= f.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
   </div>  
   <% end %>
   <div class="well">
