@@ -41,6 +41,7 @@ class UserInfosController < ApplicationController
   # POST /user_infos.json
   def create
     @user_info = UserInfo.new(params[:user_info])
+    @user_info.user = current_user
 
     respond_to do |format|
       if @user_info.save
