@@ -15,8 +15,8 @@ class ParkingLotBookingsController < ApplicationController
     @available_lots ={}
     @resultant_lots_hash = []
     @parking_spaces.each do |place|
-      #@parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = ? AND end_date > ? AND start_date < ?",place.id,@allwd_vehicle,@end_date,@start_date).first()
-      @parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = 1",place.id).first()
+      @parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = ? AND end_date > ? AND start_date < ?",place.id,@allwd_vehicle,@end_date,@start_date).first()
+      #@parking_space_lot = ParkingSpaceLot.where("number_of_lots > 0 AND parking_space_id = ? AND allowed_vehicle_type_id = 1",place.id).first()
       if !@parking_space_lot.nil?
          @parking_space_lots.append(@parking_space_lot)
          @available_lots[@parking_space_lot.id] = @parking_space_lot.number_of_lots
