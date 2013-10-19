@@ -2,6 +2,11 @@ Parkeasy::Application.routes.draw do
   get 'parking_lot_bookings/booking' => 'parking_lot_bookings#booking'
   get 'parking_lot_bookings/search' => 'parking_lot_bookings#search'
   get '/parking_lot_bookings/superfunc' => 'parking_lot_bookings#superfunc'
+  get '/users/edit' => 'user_infos#edit'
+  
+      # resources :users do
+      # resources :user_infos
+     # end
   resources :parking_lot_bookings
 
 

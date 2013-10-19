@@ -38,7 +38,7 @@
 	        </div>
        </div>
   </div>
-  <h2>Parking Slot Details:</h2>
+  <h3>Parking Slot Details:</h3>
   <%= fields_for :parking_space_lot do |f| %>
   <div class="field">
   	<%= f.label :start_date %>
@@ -75,32 +75,9 @@
     <%= f.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
   </div>  
   <% end %>
-  <div class="well">
-       <table class="table">
-       <tr>
-              <th>#</th>
-              <th>Start date</th>
-              <th>End date</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-              <th>Number of lots</th>
-              <th>Slot Type</th>   
-       </tr>
+
   
-  <tr>
-       <td>1</td>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>    
-  </tr>  
-  
-       </table>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="" >
+    <%= f.submit %> 
   </div>
 <% end %>

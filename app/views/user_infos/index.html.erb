@@ -1,6 +1,6 @@
 <h1>Listing user_infos</h1>
 
-<table>
+<table class="table table-bordered zebra-striped">
   <tr>
     <th>Address</th>
     <th>Proof type</th>
@@ -8,9 +8,8 @@
     <th>Is admin</th>
     <th>Is trusted</th>
     <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Action</th>
+
   </tr>
 
 <% @user_infos.each do |user_info| %>
@@ -20,10 +19,11 @@
     <td><%= user_info.proof_id %></td>
     <td><%= user_info.is_admin %></td>
     <td><%= user_info.is_trusted %></td>
-    <td><%= user_info.user %></td>
-    <td><%= link_to 'Show', user_info %></td>
-    <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
-    <td><%= link_to 'Destroy', user_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= user_info.user.email %></td>
+    <td><%= link_to user_info do %> <i class="icon-eye-open" title="Show"> </i><%end%>
+    <%= link_to edit_user_info_path(user_info) do %><i class="icon-pencil" title="Edit"></i>	<%end%>
+    <%= link_to user_info, method: :delete, data: { confirm: 'Are you sure?' } do%> <i class="icon-trash" title="Delete"></i><%end%></td>
+    
   </tr>
 <% end %>
 </table>
