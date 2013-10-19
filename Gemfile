@@ -8,9 +8,9 @@ gem 'heroku'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'bootstrap-sass'
-gem 'sass-rails',   '~> 3.2.3'
-gem 'twitter-bootstrap-rails'
+#gem 'bootstrap-sass'
+#gem 'sass-rails',   '~> 3.2.3'
+#gem 'twitter-bootstrap-rails'
 
 gem 'devise', '3.1.0'
 # Gems used only for assets and not required
