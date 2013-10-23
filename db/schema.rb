@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019033206) do
+ActiveRecord::Schema.define(:version => 20131023133551) do
 
   create_table "parking_lot_bookings", :force => true do |t|
     t.integer  "number_of_lots_booked"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20131019033206) do
 
   create_table "parking_spaces", :force => true do |t|
     t.text     "location_address"
-    t.float    "location_x",       :null => false
-    t.float    "location_y",       :null => false
+    t.string   "location_x",       :null => false
+    t.string   "location_y",       :null => false
     t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
