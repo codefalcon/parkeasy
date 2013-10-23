@@ -38,46 +38,69 @@
 	        </div>
        </div>
   </div>
-  <h3>Parking Slot Details:</h3>
-  <%= fields_for :parking_space_lot do |f| %>
-  <div class="field">
-  	<%= f.label :start_date %>
-  	<div class="input-append datetimepicker2">
-		<%= f.text_field :start_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
-		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
-	</div>
-  </div>
-  <div class="field">
-  	<%= f.label :end_date %>
-  	<div class="input-append datetimepicker2">
-  		<%= f.text_field :end_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
-		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
-	</div>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.time_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
-  </div>
-  <div class="field">
-    <%= f.label :allowed_vehicle_type_id %><br />
-    <%= f.select :allowed_vehicle_type_id, options_for_select(@allowed_vehicle_types),{},{} %>
-  </div>
-  <div class="field">
-    <%= f.label :number_of_lots %><br />
-    <%= f.number_field :number_of_lots %>
-  </div>
-  <div class="field">
-    <%= f.label :preferred_duration_type_id %><br />
-    <%= f.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
-  </div>  
-  <% end %>
-
   
-  <div class="" >
-    <%= f.submit :class => 'btn btn-inverse' %> 
+  <hr/>
+  <h5>Parking Slot Details:</h5>
+  <hr/>
+    
+  <%= fields_for :parking_space_lot do |f| %>
+  <div class="row">
+	  <div class="span6">
+	  	<%= f.label :start_date %>
+	  	<div class="input-append datepicker2">
+			<%= f.text_field :start_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
+			<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+		</div>
+	  </div>
+	  
+	  <div class="span6">
+	  	<%= f.label :end_date %>
+	  	<div class="input-append datepicker2">
+	  		<%= f.text_field :end_date, :as => :string , "data-format" => "MM/dd/yyyy"%>
+			<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+		</div>
+	  </div>
   </div>
+  <br />
+  <div class="row">
+  	<div class="span6">
+	 	<%= f.label :start_time %>
+	 	<div class="input-append timepicker2">
+	  		<%= f.text_field :start_time, :as => :string , "data-format" => "hh:mm"%>
+			<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+		</div>
+	  </div>
+	  <div class="span6">
+	  	<%= f.label :end_time %>
+	  	<div class="input-append timepicker2">
+	  		<%= f.text_field :end_time, :as => :string , "data-format" => "hh:mm"%>
+			<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
+		</div>
+	  </div>
+	</div>
+	<br/>
+   <div class="row">
+	  <div class="span6">
+	    <%= f.label :allowed_vehicle_type_id %>
+	    <%= f.select :allowed_vehicle_type_id, options_for_select(@allowed_vehicle_types),{},{} %>
+	  </div>
+	  <div class="span6">
+	    <%= f.label :number_of_lots %>
+	    <%= f.number_field :number_of_lots, :min=>"1" , :max => "50" , :type=>"number" %>
+	  </div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="span6">
+	    <%= f.label :preferred_duration_type_id %>
+	    <%= f.select :preferred_duration_type_id, options_for_select(@preferred_duration_types),{},{} %>
+	    </div>  
+  		<% end %>
+    </div>
+    <br/>
+    <div class="row" >
+    	<div class="span6">
+    		<%= f.submit :class => 'btn btn-inverse' %>
+    	</div> 
+    </div>
 <% end %>

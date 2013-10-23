@@ -1,24 +1,49 @@
+
+<%= link_to(:controller => "parking_lot_bookings", :action => "search", :class=> "btn btn-info btn-mini")  do %>
+		<i class="icon-white icon-arrow-left"></i> Back to Search
+<%end%>
+<br/>
+
 <h3>Search Results ..</h3>
-  <% @parking_spaces.each_slice(2) do |batch| %>
-    <div class="row">
-    	<% batch.each do |parking_space| %>
-    		<%= form_for(parking_space) do |ps| %>
-		    <div class="span2">
-		      <img src="http://placehold.it/150x150" width="150" height="150" alt="" class="img-rounded">
-		    </div>
-		    <div class="span4">
-		      <blockquote>
-		        <p><%= parking_space.place%></p>
-		        <small><cite title="Source Title"><%= parking_space.location_x %> ,<%= parking_space.location_x %> <i class="icon-map-marker"></i></cite></small>
-		      </blockquote>
-		      
-		      <p>
-		                  
-				<%= link_to "Book", parking_lot_bookings_booking_path , :class =>"btn btn-danger btn-small active", :id => parking_space.id%>
-		      </p>
-		    </div>
-		    <% end %>
-		<% end%>
-    </div>
-     <br/>
-  <% end %>
+<hr/>
+
+<%
+	if @parking_spaces.length == 0
+%>
+	<div style="width: 100%; height: 100%">
+		No Search Results Found.. Please refine your search.
+	</div>
+<%
+	else
+%>
+<div class="row">
+	<div class="span6">
+		<table class="table  table-bordered zebra-striped">
+		  <tr>
+		    <th>Location address</th>
+		    <th>Location x</th>
+		    <th>Location y</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		
+		<% @parking_spaces.each do |parking_space| %>
+		  <tr class="well" onmouseover="pointOnMap(<%= parking_space.location_x %>,<%= parking_space.location_x %>);">
+		    <td><%= parking_space.location_address %></td>
+		    <td><%= parking_space.location_x %></td>
+		    <td><%= parking_space.location_y %></td>
+		    <td><%= link_to 'Show', parking_space %></td>
+		    <td><%= link_to 'Edit', edit_parking_space_path(parking_space) %></td>
+		    <td><%= link_to 'Destroy', parking_space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		<% end %>
+	 </table>
+	</div>
+	<div class="span6">
+		<div id="map_canvas" style="width:100%;height:350px;"></div>		
+	</div>
+</div>
+<%
+	end
+%>

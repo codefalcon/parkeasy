@@ -5,12 +5,16 @@ function loadScript() {
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
       'callback=initialize';
   document.body.appendChild(script);
-  document.getElementById("singlemapsearch").onclick = function () { 
-  	centerMap();	
-  };
-   document.getElementById("multimapsearch").onclick = function () { 
-  	renderLocations();	
-  };
+  
+  var mapcontext = document.getElementById("multimapsearch").getAttribute("mapcontext");
+  if(mapcontext === "Closestpoint"){
+  	renderLocations();
+  }
+  else {
+  	document.getElementById("singlemapsearch").onclick = function () { 
+	  	centerMap();
+	  };
+  }
 }
 
 function initialize() {
@@ -56,7 +60,7 @@ function initialize() {
   });
 }
 
- function centerMap() {
+function centerMap() {
  	
  		var address = $('#txtMapAddress').val();
         if (address.length > 0) {
@@ -72,7 +76,7 @@ function initialize() {
         }
       }
       
-      function renderLocations() {
+function renderLocations() {
       	
       	$.ajax({
         url: '/parking_spaces.json',
@@ -113,5 +117,11 @@ function initialize() {
 		});
       	
   }
-      
+
+function pointOnMap(x,y)  
+{
+	var myLatlng = new google.maps.LatLng(x,y);
+	map.setCenter(myLatlng);
+}   
+     
 window.onload = loadScript;
