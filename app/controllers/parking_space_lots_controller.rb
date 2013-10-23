@@ -1,4 +1,5 @@
 class ParkingSpaceLotsController < ApplicationController
+  before_filter :authenticate_user!, :only=>[:index]
   # GET /parking_space_lots
   # GET /parking_space_lots.json
   def index

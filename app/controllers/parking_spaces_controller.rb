@@ -1,5 +1,6 @@
 class ParkingSpacesController < ApplicationController
   include ApplicationHelper
+  require 'date'
   # GET /parking_spaces
   # GET /parking_spaces.json
   before_filter :authenticate_user!, :only=>[:new]
@@ -47,15 +48,12 @@ def new
   # POST /parking_spaces.json
   def create
     @parking_space = ParkingSpace.new(params[:parking_space])
-    @parking_space.location_x = @parking_space.location_x.to_f
-    @parking_space.location_y = @parking_space.location_y.to_f
+    @parking_space.location_x = @parking_space.location_x.to_s
+    @parking_space.location_y = @parking_space.location_y.to_s
     @parking_space.user = current_user
-    @parking_space_lot = ParkingSpaceLot.new(params[:parking_space_lot])
- 
-   
+    @parking_space_lot = ParkingSpaceLot.new(params[:parking_space_lot])     
     respond_to do |format|
       if @parking_space.save
-        puts @parking_space_lot.start_date
         @parking_space_lot.parking_space = @parking_space
         @parking_space_lot.save!
         format.html { redirect_to '/parking_spaces', notice: 'Parking space was successfully created.' }
@@ -106,5 +104,5 @@ def new
         end 
       end    
     end
-  end
+  end 
 end
